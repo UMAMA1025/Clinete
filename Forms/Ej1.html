@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 1</title>
+    </head>
+    <body>
+        <h2>Formurario de Datos </h2>
+        <form id="id_form">
+            <label for="nombre">Nombre: </label> 
+            <input type="text" id="nombre" name="nombre"><br>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos"><br>
+            <label for="direccion">Direccion: </label>
+            <input type="text" id="direccion" name="direccion"><br>
+
+            <button type="button" onclick="comprobarForm()">Comprobar</button>
+        </form>
+
+        <script>
+            function comprobarForm(){
+                //Get values from the user
+                const nombre = document.getElementById("nombre").value.trim();
+                const apellidos = document.getElementById("apellidos").value.trim();
+                const direccion = document.getElementById("direccion").value.trim();
+
+                //check if something is missing
+                if(!nombre || !apellidos || !direccion){
+                    alert("Por pavor, rellena todos los campos! ");
+                }
+
+                //Show data in alert
+                alert(`Datod introducidos: \nNombre: ${nombre} \nApellidos: ${apellidos}\nDirección: ${direccion}`);
+            }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ventana Escapista 2</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 20px; }
+    button { margin: 5px; padding: 6px 12px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Ventana Escapista 2</h1>
+
+  <div>
+    <button onclick="arriba()">Arriba ⬆️</button>
+    <button onclick="abajo()">Abajo ⬇️</button>
+    <button onclick="izquierda()">Izquierda ⬅️</button>
+    <button onclick="derecha()">Derecha ➡️</button>
+  </div>
+
+  <div>
+    <button onclick="zoom_in()">Agrandar 🔍</button>
+    <button onclick="zoom_out()">Reducir 🔎</button>
+  </div>
+
+  <script>
+   
+    // Funciones de movimiento
+    function arriba() { Escapar(0, -10); }
+    function abajo() { Escapar(0, 10); }
+    function izquierda() { Escapar(-10, 0); }
+    function derecha() { Escapar(10, 0); }
+
+    // Zoom
+    function zoom_in() {
+      let w = window.outerWidth;
+      let h = window.outerHeight;
+      let nw = w*2;
+      let nh = h*2;
+      if(nw <= screen.availWidth && nh <= screen.availHeight) window.resizeTo(nw, nh);
+      else alert("No se puede agrandar más.");
+    }
+
+    function zoom_out() {
+      let w = window.outerWidth;
+      let h = window.outerHeight;
+      let nw = w/2;
+      let nh = h/2;
+      if(nw >= 100 && nh >= 100) window.resizeTo(nw, nh);
+      else alert("No se puede reducir más.");
+    }
+
+    let movingauto;
+    //Funcion para Escapar
+    function Escapar(changeX, changeY){
+        window.moveBy(changeX, changeY);
+        if(!movingauto){
+            movingauto = setInterval(()=>{
+
+                // Move a random small amount
+                let randomX = Math.floor(Math.random() * 31 ) -15;
+                let randomY = Math.floor(Math.random() * 31) -15;
+
+                // Get the window's current position
+                let current_left = window.screenX;
+                let current_top = window.screenY;
+
+                // Calculate the new position
+                let newLeft = current_left + randomX;
+                let newTop = current_top + randomY;
+
+                 // Calculate the new position
+                 if(newLeft < 0) newLeft = 0;
+                 if(newTop < 0) newTop =0;
+
+                 if(newLeft + window.outerWidth > screen.availWidth)
+                 newLeft = screen.availWidth - window.outerWidth;
+
+                 if(newTop + window.outerHeight > screen.availHeight)
+                 newTop = screen.availHeight - window.outerHeight;
+
+                 window.moveTo(newLeft, newTop);
+
+            }, 200);
+        }
+
+    }
+
+
+    // Función pública para detener la ventana
+    function stopEscapar() {
+      clearInterval(movingauto);
+      movingauto = null;
+    }
+  </script>
+</body>
+</html>

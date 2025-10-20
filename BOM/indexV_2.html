@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Página Principal 2</title>
+</head>
+<body>
+  <h1>Página Principal 2</h1>
+  <button id="abrirVentana">Abrir ventana escapista</button>
+  <button id="detenerVentana">Detener ventana</button>
+
+  <script>
+    let ventanaEscapista;
+
+    // Abrir ventana
+    document.getElementById("abrirVentana").addEventListener("click", () => {
+      ventanaEscapista = window.open(
+        "windowV_2.html",
+        "ventanaEscapista",
+        "width=200,height=200,left=100,top=100"
+      );
+    });
+
+    // Detener ventana
+    document.getElementById("detenerVentana").addEventListener("click", () => {
+      if (ventanaEscapista && !ventanaEscapista.closed) {
+        ventanaEscapista.stopEscapar(); // llama a la función de la ventana
+      }
+    });
+  </script>
+</body>
+</html>

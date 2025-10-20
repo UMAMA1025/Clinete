@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1</title>
+        <meta charset="utf-8">
+        <style>
+            body{
+                text-align: center;
+                margin-top: 50px;
+            }
+            #main{
+                padding: 20px;
+                border-radius: 10px;
+                background-color: rgb(158, 146, 146);
+            }
+            .newDiv{
+                margin: 150px;
+                align-items: center;
+               
+            }
+          
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <button id="button">Add new div </button>
+        </div>
+
+        <script>
+            const main = document.getElementById('main');
+            const button = document.getElementById('button');
+
+           function addColour(){
+            return '#' + Math.floor(Math.random() * 16777215).toString(16);
+           }
+
+            button.addEventListener('click', () => {
+                const newDiv = document.createElement('div');
+                newDiv.style.backgroundColor = addColour();
+                newDiv.classList.add('new-div');
+                newDiv.textContent = 'SOY UN NUEVO <DIV>';
+                main.appendChild(newDiv);
+        
+            })
+
+           
+        </script>
+
+    </body>
+</html>

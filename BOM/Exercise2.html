@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 2 BOM</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <button id="butt">Click me!</button>
+        <div id="info"></div>
+        <script>
+            const button = document.getElementById('butt');
+            const infoDiv = document.getElementById('info');
+
+            button.addEventListener('click', () => {
+                //URL de la pagina
+                const url = window.location.herf;
+
+                //El navegador
+                const navegador = navigator.userAgent;
+                //El titulo
+                const title = document.title;
+
+                //El numero de formularios
+                const form = document.forms.length;
+                //Tmaño de la ventana
+                const ancho = window.innerHeight;
+                const alto = window.innerHeight;
+
+                //Mensaje Historial de visitas
+               
+                const history = window.history.length;
+                let message = '';
+                if (history >= 1){
+                    message = '¡Cuidado! Tu historial de navegación es largo, podrías dejar de navegar.';
+                }
+                console.log(message);
+
+                 infoDiv.innerHTML = `
+                 <p><strong>URL de la pagina: </strong> ${url}</p>
+                 <p><strong>Navegador: </strong> ${navegador}</p>
+                 <p><strong>Titulo de la pagina: </strong> ${title}</p>
+                 <p><strong>Numero de formularios: </strong> ${form}</p>
+                 <p><strong>Tamaño de la ventana: </strong> ${ancho} x ${alto}</p>
+                  <p><strong>Historial de visitas:</strong> ${history}</p>
+                ${message ? `<p style="color:red;"><strong>${message}</strong></p>` : ''}
+                 `;
+            })
+        </script>
+    </body>
+</html>

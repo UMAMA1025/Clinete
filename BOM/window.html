@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Control de Ventana</title>
+  <style>
+   
+  </style>
+</head>
+<body>
+
+    <h1>Controla la ventana</h1>
+    <div>
+        <button onclick="arriba()">Arriba ⬆️ </button>
+        <button onclick="abajo()">Abajo ⬇️</button>
+        <button onclick="Izquierda()">Izquierda ⬅️</button>
+        <button onclick="derecha()">Derecha ➡️</button>
+    </div>
+    <div>
+        <button onclick="zoom_in()">Agranadr 🔍</button>
+        <button onclick="zoom_out()">Reducir 🔎</button>
+    </div>
+ <script>
+
+    // Movimiento de la ventana
+    function arriba(){
+        window.moveBy(0,-10);
+    }
+    function abajo(){
+        window.moveBy(0,10);
+    }
+    function Izquierda(){
+        window.moveBy(-10,0);
+    }
+    function derecha(){
+        window.moveBy(10,0);
+    }
+
+
+    // Agrandar la ventana
+    function zoom_in(){
+        let x = window.outerWidth;
+        let y = window.outerHeight;
+
+        let newX = x * 2;
+        let newY = y * 2;
+
+        if(newX <= screen.availWidth && newY <= screen.availHeight ){
+            window.resizeTo(newX,newY);
+        }
+        else{
+            alert("No de puede agarandar mas.");
+        }
+    }
+ 
+    // Reducir la ventana
+    function zoom_out(){
+        let x = window.outerWidth;
+        let y = window.outerHeight;
+
+        let newX = x / 2;
+        let newY = y / 2;
+
+        if (newX >= 100 && newY >= 100){
+            window.resizeTo(newX,newY);
+        }
+        else{
+            alert("No se puede reducir mas.");
+        }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 2</title>
+        <style>
+            .box{
+
+                display: flex;
+                gap: 10px;
+            }
+            .boxx{
+                width: 100px;
+                height: 100px;
+                background-color: azure;
+                border: 2px solid #333;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Change the colour of a box by selecting number and colour</h3>
+        <label for="id">Select number</label>
+        <select id="boxId">
+            <option value="box1">Box 1</option>
+            <option value="box2">Box 2</option>
+            <option value="box3">Box 3</option>
+            <option value="box4">Box 4</option>
+        </select>
+
+        <br>
+
+
+        <label for="color">Select color</label>
+        <select id="colour">
+            <option value="red">Red</option>
+            <option value="pink">Pink</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="black">Black</option>
+            <option value="orange">Orange</option>
+        </select>
+            
+        <br>
+        <button type="button" onclick="changeC()">Change</button>
+
+        <br>
+        <br>
+        <div class="box">
+            <div class="boxx" id="box1">1</div>
+            <div class="boxx" id="box2">2</div>
+            <div class="boxx" id="box3">3</div>
+            <div class="boxx" id="box4">4</div>
+
+        </div>
+
+        <script>
+            function changeC(){
+                //get values
+                const Id = document.getElementById("boxId").value;
+                const color = document.getElementById("colour").value;
+
+                //change color
+                const box = document.getElementById(Id);
+                box.style.backgroundColor = color;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chatset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h2 id="Result"></h2>
+        <script>
+            //Ask use for option
+            let option= prompt(
+                "Elige el formato de fecha:\n" +
+                "1: 01/01/2000\n" +
+                "2: 1 de enero de 2000\n" +
+                "3: 2º viernes de enero"
+            );
+
+            //get today date
+            let hoy = new Date();
+            let dia = hoy.getDate();
+            let mes = hoy.getMonth();
+            let año = hoy.getFullYear();
+            let diasemana = hoy.getDay();
+
+            let meses = ["enero","febrero","marzo","abril","mayo","junio",
+                     "julio","agosto","septiembre","octubre","noviembre","diciembre"];
+            let diasSemana = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+
+            let resultado = "";
+
+            if(option === "1"){
+                resultado = String(dia).padStart(2,'0') +" \ " + 
+                String(mes +1).padStart(2,'0') + " \ " + String(año);
+            }
+            else if(option === "2"){
+                resultado = dia + " de " + meses[mes] + " de " + año;
+            }
+            else if(option === "3"){
+                let primerDiaMes = new Date(año, mes, 1);
+                let numeroSemana = Math.ceil((dia + primerDiaMes.getDay()) / 7);
+                 resultado = numeroSemana + "º " + diasSemana[diasemana] + " de " + meses[mes];
+            }
+            else{
+                document.write("Opcion no valida!");
+            }
+
+            document.getElementById("Result").innerText = resultado;
+        </script>
+    </body>
+</html>

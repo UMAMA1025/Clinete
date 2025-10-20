@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOM - Crear nuevos divs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #contenedor {
+      background-color: red;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .nuevo-div {
+      color: white;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: white;
+      color: red;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    button:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="contenedor">
+    <button id="boton">Añadir nuevo div</button>
+  </div>
+
+  <script>
+    const contenedor = document.getElementById('contenedor');
+    const boton = document.getElementById('boton');
+
+    // Función para generar un color aleatorio en formato hexadecimal
+    function colorAleatorio() {
+      return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    }
+
+    boton.addEventListener('click', () => {
+      const nuevoDiv = document.createElement('div');
+      nuevoDiv.classList.add('nuevo-div');
+      nuevoDiv.textContent = 'SOY UN NUEVO <DIV>';
+      nuevoDiv.style.backgroundColor = colorAleatorio();
+      contenedor.appendChild(nuevoDiv);
+    });
+  </script>
+
+</body>
+</html>
