@@ -6,7 +6,7 @@
     </head>
     <body>
         <h2>Fill this from for any type of help</h2>
-        <from id="form_id">
+        <form id="form_id">
             <label for="name">Name: </label>
             <input type="text" id="name" required><br>
 
@@ -32,12 +32,13 @@
                 const problem = document.getElementById("problem").value.trim();
                 const phone = document.getElementById("phone").value.trim();
                 const email = document.getElementById("email").value.trim();
-            }
-            //validate name and surname
-            if (!name || !surname){
+                 if (!name || !surname){
                 alert("Please, complete name and surname");
                 return false
             }
+            }
+            //validate name and surname
+           
         </script>
     </body>
 </html>
