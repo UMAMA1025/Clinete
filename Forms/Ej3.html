@@ -5,7 +5,7 @@
         <title>Ejercico 3</title>
     </head>
     <body>
-        <h2>Fill this from for any type of help</h2>
+        <h2>Fill this form for any type of help</h2>
         <form id="form_id">
             <label for="name">Name: </label>
             <input type="text" id="name" required><br>
@@ -22,22 +22,35 @@
             <label for="email">Email: </label>
             <input type="email" id="email" required placeholder="abc@gmail.com"><br>
 
-            <button type="submit" onclick="validateForm()">Send</button>
+            <button type="submit" id="button">Send</button>
 
         </from>
         <script>
-            function validateForm(){
+            const button = document.getElementById("button");
+            button.addEventListener("button", function(e){
+
                 const name = document.getElementById("name").value.trim();
                 const surname = document.getElementById("surname").value.trim();
                 const problem = document.getElementById("problem").value.trim();
                 const phone = document.getElementById("phone").value.trim();
                 const email = document.getElementById("email").value.trim();
-                 if (!name || !surname){
+                 
+            if (!name || !surname){
                 alert("Please, complete name and surname");
                 return false
             }
+            if(!phone.validateDefault()){
+                e.preventDefault();
+                alert(email.validationMessage)
+
             }
-            //validate name and surname
+             else {
+                e.preventDefault();
+                alert("Email is valid!");
+            }
+            
+            })
+
            
         </script>
     </body>

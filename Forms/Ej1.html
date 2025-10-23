@@ -14,12 +14,14 @@
             <label for="direccion">Direccion: </label>
             <input type="text" id="direccion" name="direccion"><br>
 
-            <button type="button" onclick="comprobarForm()">Comprobar</button>
+            <button type="button" id="button">Comprobar</button>
         </form>
 
         <script>
-            function comprobarForm(){
-                //Get values from the user
+            const button = document.getElementById("button");
+            button.addEventListener("click", function(){
+
+                 //Get values from the user
                 const nombre = document.getElementById("nombre").value.trim();
                 const apellidos = document.getElementById("apellidos").value.trim();
                 const direccion = document.getElementById("direccion").value.trim();
@@ -31,7 +33,8 @@
 
                 //Show data in alert
                 alert(`Datod introducidos: \nNombre: ${nombre} \nApellidos: ${apellidos}\nDirección: ${direccion}`);
-            }
+            })
+           
         </script>
 
     </body>
