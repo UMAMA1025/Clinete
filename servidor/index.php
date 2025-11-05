@@ -10,7 +10,7 @@ session_start();
 </head>
 <body>
     <h1>Enter your name to access your agenda</h1>
-    <form action="agenda.php" method="get">
+    <form action="agenda.php" method="post">
         <input type="text" name="username" placeholder="Your name" required>
         <button type="submit">Go to Agenda</button>
     </form>

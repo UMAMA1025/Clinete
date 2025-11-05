@@ -7,6 +7,9 @@ class Agenda {
     public function __construct() {
         // Load agenda from session if exists
         if (isset($_SESSION['agenda'])) {
+            $agenda = [
+                'umama' => 'hflwr@frg.com'
+            ];
             $this->entries = $_SESSION['agenda'];
         }
     }

@@ -1,11 +1,18 @@
 <?php
 session_start();
-require_once 'Person.php';
+
 require_once 'Agenda.php';
 
 // Get username for header
-$username = isset($_GET['username']) ? trim($_GET['username']) : 'Guest';
-
+if(isset($_POST['username'])){
+    $username = strip_tags($_POST['username']);
+    setcookie('username', $username, time()+ 86400);
+}elseif(isset($_COOKIE['username']))
+{
+    $username= $_COOKIE['username'];
+}else{
+    $username = "Guest";
+}
 // Create agenda object
 $agenda = new Agenda();
 
@@ -53,22 +60,16 @@ $entries = $agenda->getAll();
     <?php endif; ?>
 
     <h2>Agenda Entries</h2>
-    <?php if (count($entries) === 0): ?>
-        <p>No entries yet.</p>
-    <?php else: ?>
+   
+    
         <ul>
-            <?php foreach ($entries as $person): ?>
-                <li>
-                    <?php 
-                        echo htmlspecialchars($person->name);
-                        if (!empty($person->email)) {
-                            echo " - " . htmlspecialchars($person->email);
-                        }
-                    ?>
-                </li>
-            <?php endforeach; ?>
+            <?php
+            foreach($agenda->getAll() as $n => $e){
+                echo "<li> Name: ". htmlspecialchars($n) . " Email: ". htmlspecialchars($e)."</li>";
+            }?>
         </ul>
-    <?php endif; ?>
+    
+
 
     <h2>Add / Update / Delete Entry</h2>
     <form action="" method="post">
@@ -84,5 +85,7 @@ $entries = $agenda->getAll();
         <li>Name exists & valid email → Update</li>
         <li>Name exists & empty email → Delete</li>
     </ul>
+
+    
 </body>
 </html>

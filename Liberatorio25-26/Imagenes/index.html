@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestor de Coches</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>🚗Gestor de Coches</h1>
+
+    <form id="form-coche" class="formulario">
+      <label>Marca</label>
+      <input type="text" id="marca" placeholder="Ej: Toyota">
+
+      <label>Modelo</label>
+      <input type="text" id="modelo" placeholder="Ej: Corolla">
+
+      <label>Año</label>
+      <input type="number" id="anio" placeholder="Ej: 2022">
+
+      <label>Precio (€)</label>
+      <input type="number" id="precio" placeholder="Ej: 18000">
+
+      <button type="submit" class="btn">Agregar coche</button>
+    </form>
+
+    <section class="acciones">
+      <button id="btn-resumen" class="btn-secondary">Mostrar resumen</button>
+    </section>
+
+    <h3>Lista de coches (<span id="contador">0</span>)</h3>
+    <div id="lista-coches" class="lista"></div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
