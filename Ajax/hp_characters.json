@@ -1,0 +1,29 @@
+{
+"personajes":[
+{"name":"Harry Potter", "code":"01"},
+{"name":"Hermione Granger", "code":"02"},
+{"name":"Ron Weasley", "code":"03"},
+{"name":"Draco Malfoy", "code":"04"},
+{"name":"Minerva McGonagall", "code":"05"},
+{"name":"Cedric Diggory", "code":"06"},
+{"name":"Cho Chang", "code":"07"},
+{"name":"Severus Snape", "code":"08"},
+{"name":"Rubeus Hagrid", "code":"09"},
+{"name":"Neville Longbottom", "code":"10"},
+{"name":"Luna Lovegood", "code":"11"},
+{"name":"Ginny Weasley", "code":"12"},
+{"name":"Sirius Black", "code":"13"},
+{"name":"Remus Lupin", "code":"14"},
+{"name":"Arthur Weasley", "code":"15"},
+{"name":"Bellatrix Lestrange", "code":"16"},
+{"name":"Lord Voldemort", "code":"17"},
+{"name":"Horace Slughorn", "code":"18"},
+{"name":"Kingsley Shacklebolt", "code":"19"},
+{"name":"Dolores Umbridge", "code":"20"},
+{"name":"Lucius Malfoy", "code":"21"},
+{"name":"Vincent Crabbe", "code":"22"},
+{"name":"Gregory Goyle", "code":"23"},
+{"name":"Mrs Norris", "code":"24"},
+{"name":"Argus Filch", "code":"25"}
+]
+}
