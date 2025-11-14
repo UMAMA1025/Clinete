@@ -78,9 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
     form.male.checked = gender === "male";
     form.female.checked = gender === "female";
 
-    // Image
-    const img = getValue("image");
-    form.foto.src = img ? img : "";
-    form.foto.alt = selectPersonajes.options[selectPersonajes.selectedIndex].text;
-  });
+   
+
+  const images = getValue("image");
+  form.foto.src = images ? images : "";
+  form.foto.alt = selectPersonajes.options[selectPersonajes.selectedIndex].text;
+
+     });
 });
